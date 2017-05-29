@@ -31,10 +31,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });*/
         //라디오 버튼 목록
-        dialog.setSingleChoiceItems(itemArr, 0, new DialogInterface.OnClickListener() {
+        /*dialog.setSingleChoiceItems(itemArr, 0, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 butDialog.setText(itemArr[which]);
+            }
+        });*/
+//        check 박스 목록
+//        선택 여부 배열
+        boolean[] checkedItems = {true, false, true, false, true};
+        dialog.setMultiChoiceItems(itemArr, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                if(isChecked){
+                    butDialog.setText(itemArr[which]);
+                }
             }
         });
         dialog.setPositiveButton("Okay", null);
